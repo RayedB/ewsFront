@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 // import { ApolloProvider } from 'react-apollo';
 import App from './App';
-// import 'css-spaces/dist/spaces.css';
-// import 'uikit/dist/css/uikit.css';
-// import 'semantic-ui/dist/semantic.css';
-import './index.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/main.scss';
 // import './themes/dist/index.css';
 
 // import {client as userClient} from "./apollo-clients/user"

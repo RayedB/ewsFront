@@ -6,6 +6,8 @@ class Content extends React.Component {
     return (
       <div>
         <p>Contenu</p>
+        <button type="button" className="btn btn-primary">Primary</button>
+
       </div>
     );
   }
