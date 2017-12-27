@@ -3,9 +3,12 @@ import {Route, BrowserRouter as Router, Link, Redirect, withRouter} from 'react-
 import Home from './Home/Home';
 import Login from './Sign/Scenes/Login/login';
 import Register from './Sign/Scenes/Register/register';
-// import Navbar from "./components/zones/navbar/Navbar"
+import Navbar from "./Components/Navbar/Navbar"
 // import Content from "./components/zones/content/Content"
 import './App.css'
+
+import 'element-theme-default'
+
 
 const fakeAuth = {
   isAuthenticated: false,
@@ -54,10 +57,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default function App () {
     return (
         <div>
+        <Navbar/>
           <Route path="/login" component={Login} />
           <Route path="/register" exact={true} component={Register}/>
           //Protected routes
         </div>
-
-    );
+    )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { Menu } from 'element-react'
 //import {Icon, Select, Dropdown, Flag, compose} from "semantic-ui-react"
 //import http from "../../../providers/http"
 //import { gql, graphql } from 'react-apollo'
@@ -49,10 +50,22 @@ class Navbar extends React.Component {
     //   style.zIndex = "10"
     //   classNameAdditional += " on-white"
     // }
+    const styles = {
+      right: {
+        float: 'right'
+      },
+      brand: {
+        fontSize: '36px'
+      }
+    }
 
     return (
       <div>
-        Hello
+        <Menu defaultActive="2" mode="horizontal">
+       <Menu.Item index="1" style={styles.brand}>Monarq</Menu.Item>
+       <Menu.Item index="2" style={styles.right}>Home</Menu.Item>
+       <Menu.Item index="3" style={styles.right}>Support</Menu.Item>
+     </Menu>
       </div>
     )
   }
