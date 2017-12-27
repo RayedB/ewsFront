@@ -54,8 +54,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default function App () {
     return (
         <div>
-          <Login />
+          <Route path="/login" component={Login} />
           <Route path="/register" exact={true} component={Register}/>
+          //Protected routes
         </div>
 
     );
