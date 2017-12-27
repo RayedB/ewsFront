@@ -1,37 +1,39 @@
-import React from 'react';
+import React from 'react'
+import { Form, Input, Button } from 'element-react'
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      email: '',
-      password: '',
-    };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.state= {
+      form: {
+        email: '',
+        password: ''
+      }
+    }
   }
-  onChange(ev) {
-    this.setState({[ev.target.name]: ev.target.value});
+  onChange(key, val) {
+    this.setState({
+      form: Object.assign(this.state.form, { [key]: val })
+    })
   }
   onSubmit(ev) {
-    ev.preventDefault();
-    console.log(this.state);
+    ev.preventDefault()
+    console.log(this.state)
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Login</h1>
-        <div className="form-group">
-          <label className="control-label">email</label>
-          <input type="email" name="email" value={this.state.email} onChange={this.onChange} className="form-control" />
-          <label className="control-label">Password</label>
-          <input type="password" name="password" value={this.state.password} onChange={this.onChange} className="form-control" />
-        </div>
-        <div className="form-group">
-          <button className="btn btn-primary">Register</button>
-        </div>
-      </form>
-    );
+      <Form inline={true} model={this.state.form} onSubmit={this.onSubmit.bind(this)}>
+        <Form.Item>
+          <Input value={this.state.form.email} placeholder="john.snow@email.com" onChange={this.onChange.bind(this, 'email')}></Input>
+        </Form.Item>
+        <Form.Item>
+        <Input type="password" value={this.state.form.password} onChange={this.onChange.bind(this, 'password')}></Input>
+        </Form.Item>
+        <Form.Item>
+          <Button nativeType="submit" type="primary">Login</Button>
+        </Form.Item>
+      </Form>
+    )
   }
 }
 

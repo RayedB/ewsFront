@@ -13,7 +13,10 @@ class Login extends React.Component {
    */
   render() {
     return (
+      <div>
+      <br/>
     <LoginForm />
+    </div>
     )
   }
 }
