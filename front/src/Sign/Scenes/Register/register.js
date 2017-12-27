@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginForm from '../../Components/LoginForm.js'
+import RegisterForm from '../../Components/RegisterForm.js'
 /**
  * Class login
  */
-class Login extends React.Component {
+class Register extends React.Component {
   state = {
     redirectToReferrer: false
   }
@@ -13,9 +13,9 @@ class Login extends React.Component {
    */
   render() {
     return (
-    <LoginForm />
+    <RegisterForm />
     )
   }
 }
 
-export default Login;
+export default Register;

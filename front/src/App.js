@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Route, BrowserRouter as Router, Link, Redirect, withRouter} from 'react-router-dom';
 import Home from './Home/Home';
+import Login from './Sign/Scenes/Login/login';
+import Register from './Sign/Scenes/Register/register';
 // import Navbar from "./components/zones/navbar/Navbar"
 // import Content from "./components/zones/content/Content"
 import './App.css'
@@ -23,36 +25,37 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-class Login extends React.Component {
-  state = {
-    redirectToReferrer: false
-  }
-  login = () => {
-    fakeAuth.authenticate(() => {
-      this.setState(() => ({
-        redirectToReferrer: true
-      }))
-    })
-  }
-  render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { redirectToReferrer } = this.state
-    if (redirectToReferrer === true) {
-      <Redirect to= {Home} />
-    }
-    return (
-      <div>
-        <p>You must log in to view the page</p>
-        <button onClick={this.login}>Log in</button>
-      </div>
-    )
-  }
-}
+// class Login extends React.Component {
+//   state = {
+//     redirectToReferrer: false
+//   }
+//   login = () => {
+//     fakeAuth.authenticate(() => {
+//       this.setState(() => ({
+//         redirectToReferrer: true
+//       }))
+//     })
+//   }
+//   render() {
+//     const { from } = this.props.location.state || { from: { pathname: '/' } }
+//     const { redirectToReferrer } = this.state
+//     if (redirectToReferrer === true) {
+//       <Redirect to= {Home} />
+//     }
+//     return (
+//       <div>
+//         <p>You must log in to view the page</p>
+//         <button onClick={this.login}>Log in</button>
+//       </div>
+//     )
+//   }
+// }
 
 export default function App () {
     return (
         <div>
-          <PrivateRoute path='/home' component={Home} />
+          <Login />
+          <Route path="/register" exact={true} component={Register}/>
         </div>
 
     );
